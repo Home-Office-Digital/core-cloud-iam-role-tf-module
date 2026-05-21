@@ -15,7 +15,7 @@ locals {
 
 module "iam_role" {
   source  = "terraform-aws-modules/iam/aws//modules/iam-role"
-  version = "6.2.1"
+  version = "6.6.0"
 
   tags = merge(local.common_tags)
 }

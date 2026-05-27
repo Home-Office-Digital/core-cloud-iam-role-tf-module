@@ -26,7 +26,7 @@ module "iam_roles" {
 
   policies = {
     AmazonS3ReadOnly            = "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
-    SecretsManagerReadWrite     = "arn:aws:iam::aws:policy/SecretsManagerReadWrite"
+    SecretsManagerReadWrite     = "arn:aws:iam::aws:policy/SecretsManagerReadWrite" #checkov:skip=CKV_SECRET_6:False positive - this is an AWS managed policy ARN, not a secret
     custom                      = aws_iam_policy.this.arn
   }
 

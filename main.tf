@@ -15,7 +15,7 @@ locals {
 
 module "iam_role" {
   source  = "terraform-aws-modules/iam/aws//modules/iam-role" #checkov:skip=CKV_TF_1:Terraform Registry module - version is pinned via the version attribute
-  version = "6.2.1"
+  version = "6.6.1"
 
   tags = merge(local.common_tags)
 }

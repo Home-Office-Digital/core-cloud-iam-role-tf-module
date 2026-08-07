@@ -1,6 +1,4 @@
 mock_provider "aws" {
-  override_during = plan
-
   mock_data "aws_caller_identity" {
     defaults = {
       account_id = "123456789012"
@@ -21,8 +19,8 @@ mock_provider "aws" {
 
   mock_data "aws_iam_policy_document" {
     defaults = {
-      json          = jsonencode({ Version = "2012-10-17", Statement = [] })
-      minified_json = jsonencode({ Version = "2012-10-17", Statement = [] })
+      json          = "{\"Version\":\"2012-10-17\",\"Statement\":[]}"
+      minified_json = "{\"Version\":\"2012-10-17\",\"Statement\":[]}"
     }
   }
 }

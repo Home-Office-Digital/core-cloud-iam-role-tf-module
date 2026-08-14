@@ -17,6 +17,7 @@ module "iam_role" {
 
   create               = var.create
   name                 = var.name
+  use_name_prefix      = var.use_name_prefix
   path                 = var.path
   description          = var.description
   max_session_duration = var.max_session_duration

@@ -79,6 +79,28 @@ run "test_resource_creation_toggle" {
   }
 }
 
+run "test_use_name_prefix_opt_out" {
+  command = apply
+  variables {
+    name            = "test-role-exact-name"
+    use_name_prefix = false
+    tags = {
+      environment-type = "test-env"
+      cost-centre      = "cc123"
+      account-code     = "ac456"
+      portfolio-id     = "pf789"
+      project-id       = "pj101"
+      service-id       = "svc202"
+      owner-business   = "owner1"
+      budget-holder    = "holder2"
+    }
+  }
+  assert {
+    condition     = output.name == "test-role-exact-name"
+    error_message = "Setting use_name_prefix = false should produce an exact IAM role name, not a name_prefix with an AWS-appended random suffix."
+  }
+}
+
 run "test_iam_role_outputs" {
   command = apply
   variables {

@@ -21,6 +21,12 @@ variable "path" {
   default     = null
 }
 
+variable "use_name_prefix" {
+  description = "Determines whether the name is used as a prefix (and a random unique ID is used as a suffix, or whether the name is exactly the same as what you specified)"
+  type        = bool
+  default     = true
+}
+
 variable "description" {
   description = "Description of the role"
   type        = string

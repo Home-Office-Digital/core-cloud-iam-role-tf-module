@@ -1,7 +1,7 @@
 module "iam_roles" {
   source = "../"
 
-  name = "project-example"
+  name               = "project-example"
   enable_github_oidc = false
 
   trust_policy_permissions = {
@@ -25,19 +25,19 @@ module "iam_roles" {
   }
 
   policies = {
-    AmazonS3ReadOnly            = "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
-    SecretsManagerReadWrite     = "arn:aws:iam::aws:policy/SecretsManagerReadWrite"
-    custom                      = aws_iam_policy.this.arn
+    AmazonS3ReadOnly        = "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
+    SecretsManagerReadWrite = "arn:aws:iam::aws:policy/SecretsManagerReadWrite" #checkov:skip=CKV_SECRET_6:False positive - this is an AWS managed policy ARN, not a secret
+    custom                  = aws_iam_policy.this.arn
   }
 
   tags = {
-    cost-centre = "..."
-    finance-account-id = "..."
-    portfolio-id = "..."
-    project-id = "..."
-    service-id = "..."
-    owner-business  = "..."
-    budget-holder   = "..."
-    envionment-type = "..."
+    cost-centre      = "..."
+    account-code     = "..."
+    portfolio-id     = "..."
+    project-id       = "..."
+    service-id       = "..."
+    owner-business   = "..."
+    budget-holder    = "..."
+    environment-type = "..."
   }
 }

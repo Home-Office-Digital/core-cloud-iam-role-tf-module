@@ -32,7 +32,7 @@ jobs:
     environment: ${{ inputs.env_name || '' }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Run Checkov Scan
         id: checkov_scan
@@ -51,7 +51,7 @@ jobs:
 
       - name: Upload SARIF file (Source Code)
         if: ${{ success() || failure() }}
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@v4.37.3
         with:
           sarif_file: 'results.sarif'
           category: 'checkov-scan'
